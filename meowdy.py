@@ -24,8 +24,7 @@ async def on_message(message):
     
     if channel == "general":
         if user_message.lower() == "hello" or user_message.lower() == "hi":
-            await message.channel.send(f'Meowdy, pardner {username}')
-            await message.channel.send(f"Sooner! {username} Your EC2 Data: {ec2_metadata.region}")
+            await message.channel.send(f'Meowdy, pardner {username} Your EC2 Data: {ec2_metadata.region}')
             return
         elif user_message.lower() == "bye":
             await message.channel.send(f'Get along, little doggy {username}')
