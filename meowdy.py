@@ -1,8 +1,7 @@
 import discord
 import os
+from ec2_metadata import ec2_metadata
 from dotenv import load_dotenv
-
-load_dotenv('meowdytoken.env')
 
 token = str(os.getenv('TOKEN'))
 
@@ -26,6 +25,7 @@ async def on_message(message):
     if channel == "general":
         if user_message.lower() == "hello" or user_message.lower() == "hi":
             await message.channel.send(f'Meowdy, pardner {username}')
+            await message.channel.send(f"Sooner! {username} Your EC2 Data: {ec2_metadata.region}")
             return
         elif user_message.lower() == "bye":
             await message.channel.send(f'Get along, little doggy {username}')
